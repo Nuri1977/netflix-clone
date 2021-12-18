@@ -1,0 +1,22 @@
+<header class="absolute top-0 left-0 right-0 z-10">
+    <nav class="mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+        <div class="w-full py-6 flex items-center justify-between border-none">
+            <div class="flex items-center">
+                <%= link_to root_path do %>
+                    <%= image_tag 'netflix-logo-0', class: 'w-44' %>
+                <% end %>
+                <div class="hidden ml-10 space-x-8 lg:block">
+                    <%= link_to 'Movies', movies_path, class: 'text-base font-medium text-white hover:text-red-200' %>
+                    <%= link_to 'Add a Movie', new_movie_path, class: 'text-base font-medium text-white hover:text-red-200' %>
+                </div>
+            </div>
+            <div class="ml-10 space-x-4">
+                <% if user_signed_in? %>
+                    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'inline-block bg-red-600 py-1 px-3 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75' %>
+                <% else %>
+                    <%= link_to 'Sign In', new_user_session_path, class: 'inline-block bg-red-600 py-1 px-3 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75' %>
+                <% end %>
+            </div>
+        </div>
+    </nav>
+</header>

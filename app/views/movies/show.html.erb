@@ -1,12 +1,21 @@
-<h1><%= @movie.title %></h1>
-
-<p><%= @movie.description %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_movie_path(@movie) %></li>
-  <li><%= link_to "Destroy", movie_path(@movie),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
-
-<%= link_to "Show all", movies_path %>
+<div class="w-full">
+  <div class="h-full w-full">
+    <video class="m-auto w-full" autoplay controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+  <div class="p-20 text-white max-w-5xl">
+    <h1 class="text-9xl font-bold mb-8"><%= @movie.title %></h1>
+    <p class="text-lg mb-4"><%= @movie.description %></p>
+    <p class="text-sm mb-4">Release Date: <span class="text-red-600"><%= @movie.release_date %></span></p>
+    <% if user_signed_in? %>
+      <div>
+        <ul class="flex">
+          <li><%= link_to "Edit", edit_movie_path(@movie), class: "inline-block bg-gray-600 py-1 px-3 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 mr-4" %></li>
+          <li><%= link_to "Destroy", movie_path(@movie), method: :delete, class: "inline-block bg-red-600 py-1 px-3 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75", data: {confirm: "Are you sure?"} %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

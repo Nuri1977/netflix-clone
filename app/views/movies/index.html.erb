@@ -1,12 +1,41 @@
-<h1>Movies</h1>
+<div class="movies-index-wrapper mb-14">
+    <div class="movie-cover" style="background-image: url(<%= image_path 'movie_cover' %>)">
+        <div class="image-overlay bg-black bg-opacity-25 h-full w-full flex items-center">
+            <div class="mx-10 text-white text-left ">
+                <h1 class="text-7xl mb-4">Shadow And Bone</h1>
+                <h3 class="text-3xl mb-4">Watch Season 1 Now</h3>
+                <h3 class="text-2xl w-1/2">Unwilling to be separated from Mal, Alina hatches a plan to join him on a
+                    perilous
+                    expedition through the
+                    Fold. Kaz chases a lead on a lucrative job.</h3>
+                <div class="flex mt-10">
+                    <button type="button"
+                        class="mr-4 inline-flex items-center px-6 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-black bg-white focus:outline-none">
+                        Play
+                    </button>
+                    <button type="button"
+                        class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-700 hover:bg-gray-700 focus:outline-none">
+                        More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<ul>
-  <% @movies.each do |movie| %>
-    <li>
-      <%= link_to movie.title, movie %>
-    </li>
-  <% end %>
-</ul>
-
-
-<%= link_to "New Movie", new_movie_path %>
+    <div class="mx-8 mt-10">
+        <h1 class="text-white text-2xl mb-5">Movies</h1>
+        <div class="movies-wrapper">
+            <div class="movies-container">
+                <% if @movies.blank? %>
+                <div class="flex text-white">
+                    <p> You haven't added any movies yet!
+                        <%= link_to 'Add movie', new_movie_path, class: 'text-red-600' %>
+                    </p>
+                </div>
+                <% else %>
+                    <%= render @movies %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

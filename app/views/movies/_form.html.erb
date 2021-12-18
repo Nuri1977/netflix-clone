@@ -1,21 +1,62 @@
-<%= form_with model: movie do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% movie.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <%= form_with model: movie, class: 'mt-10' do |f| %>
+        <div class="space-y-8 divide-y divide-gray-200">
+            <div class="pt-8">
+                <div class="text-white">
+                    <h3 class="text-lg leading-6 font-medium"> Movie Information </h3>
+                    <p class="mt-1 text-sm"> Use this form to add/update information for movie. </p>
+                    <% if @movie.errors.any? %>
+                        <ul>
+                            <% @movie.errors.full_messages.each do |message| %>
+                                <li class="text-base text-red-600"><%= message %> </li>
+                            <% end %>
+                        </ul>
+                    <% end %>
+                </div>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
-    <% movie.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div class="sm:col-span-6">
+                        <%= f.label :title, class: 'block text-sm font-medium text-white' %>
+                        <div class="mt-1">
+                            <%= f.text_field :title, class: 'shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-gray-300 rounded-md' %>
+                        </div>
+                    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+                    <div class="sm:col-span-3">
+                        <%= f.label :duration, class: 'block text-sm font-medium text-white' %>
+                        <div class="mt-1">
+                            <%= f.text_field :duration, class: 'shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-gray-300 rounded-md' %>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <%= f.label :release_date, class: 'block text-sm font-medium text-white' %>
+                        <div class="mt-1">
+                            <%= f.date_field :release_date, max: Date.today, class: 'shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-gray-300 rounded-md' %>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                        <%= f.label :cast, class: 'block text-sm font-medium text-white' %>
+                        <div class="mt-1">
+                            <%= f.text_field :cast, class: 'shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-gray-300 rounded-md' %>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                        <%= f.label :description, class: 'block text-sm font-medium text-white' %>
+                        <div class="mt-1">
+                            <%= f.text_area :description, class: 'shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md' %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-5">
+            <div class="flex justify-end">
+                <%= f.submit 'Submit', class: 'inline-flex cursor-pointer justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+            </div>
+        </div>
+    <% end %>
+</div>

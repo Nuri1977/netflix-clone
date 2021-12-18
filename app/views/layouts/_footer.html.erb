@@ -1,0 +1,53 @@
+<footer class="bg-black" aria-labelledby="footer-heading">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <h2 class="text-white mb-6"> Questions? Call 1-844-505-2993 </h2>
+        <div class="xl:grid xl:grid-cols-2 xl:gap-8">
+            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase"> Solutions </h3>
+                        <ul class="mt-4 space-y-4">
+                            <% ['Marketing', 'Analytics', 'Commerce', 'Insights'].each do |link_text| %>
+                                <li>
+                                    <a href="#" class="text-base text-gray-300 hover:text-white"> <%= link_text %> </a>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase"> Support </h3>
+                        <ul class="mt-4 space-y-4">
+                            <% ['Pricing Documentation', 'Guides', 'API Status'].each do |link_text| %>
+                                <li>
+                                    <a href="#" class="text-base text-gray-300 hover:text-white"> <%= link_text %> </a>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase"> Company </h3>
+                        <ul class="mt-4 space-y-4">
+                            <% ['About', 'Blog', 'Jobs', 'Press', 'Partners'].each do |link_text| %>
+                                <li>
+                                    <a href="#" class="text-base text-gray-300 hover:text-white"> <%= link_text %> </a>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase"> Legal </h3>
+                        <ul class="mt-4 space-y-4">
+                            <% ['Claim', 'Privacy', 'Terms'].each do |link_text| %>
+                                <li>
+                                    <a href="#" class="text-base text-gray-300 hover:text-white"> <%= link_text %> </a>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

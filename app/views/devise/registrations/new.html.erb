@@ -1,29 +1,25 @@
-<h2>Sign up</h2>
+<div class="home-page-wrapper">
+    <div class="image-wrapper"
+        style="background-image: url(<%= image_path 'home_bg.jpeg' %>); height: 100vh;">
+        <div class="image-overlay bg-black bg-opacity-60 h-full w-full flex items-center justify-center">
+            <div class="bg-black bg-opacity-75 w-2/12" style="padding: 60px 68px 40px; min-width: 500px;">
+                <h1 class="text-3xl text-white mb-12 font-bold"> Sign Up </h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "authentication-form" }) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', required: true %>
+                    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'New Password', required: true %>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password', required: true %>
+                    <% if @minimum_password_length %>
+                        <em class="text-white text-xs -mt-4 block" style="color: #b3b3b3;"><%= @minimum_password_length %> characters minimum</em>
+                    <% end %><br />
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                    <%= f.submit "Sign up" %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                    <p class="authentication-notice"> <span class="authentication-notice-silent"> Already to Netflix?</span> <span class="authentication-notice-loud"> <%= link_to 'Sign in now', new_user_session_path %></span> </p>
+                    <p class="authentication-protection-notice"> This page is protected by Google reCAPTCHA to ensure you're not a bot. <%= link_to 'Learn more.', "#", class: "authentication-protection-url" %> </p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

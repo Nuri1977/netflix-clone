@@ -1,0 +1,90 @@
+/* tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.home-page-wrapper {
+  .image-wrapper {
+    height: 706px;
+  }
+}
+
+.movies-index-wrapper {
+  .index-video {
+    width: 100vw;
+    height: 706px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    top: 0;
+    z-index: -2;
+  }
+
+  .movie-cover {
+    height: 800px;
+    @apply bg-center bg-cover bg-no-repeat;
+  }
+
+  .movies-wrapper {
+    @apply overflow-x-scroll relative;
+    height: 200px;
+
+    .movies-container {
+      @apply flex absolute;
+    }
+
+    .movie {
+      width: 300px;
+      height: 200px;
+    }
+  }
+}
+
+.authentication-form {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+      @apply w-full px-4 py-4 border-none rounded-md mb-6 text-white;
+      background-color: #333;
+
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder,
+      &:-ms-input-placeholder,
+      &:-moz-placeholder {
+          color: #8c8c8c;
+      }
+
+      &:focus { @apply outline-none ring-0 border-none;  }
+  }
+
+  input[type='submit'] {
+      @apply w-full text-center bg-red-600 text-white font-semibold py-4 rounded-md mt-4;
+  }
+}
+
+.authentication-notice {
+  @apply w-full flex items-center mt-12;
+
+  &-silent {
+      @apply mr-1;
+      color: #737373;
+      font-weight: 500;
+  }
+
+  &-loud {
+      @apply text-white;
+
+  }
+}
+
+.authentication-protection-notice {
+  @apply text-xs mt-4;
+  color: #8c8c8c;
+}
+
+.authentication-protection-url {
+  @apply text-blue-500;
+
+  &:hover { @apply underline; }
+}
